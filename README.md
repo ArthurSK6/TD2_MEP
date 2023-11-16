@@ -3,7 +3,7 @@
 ## Partie docker local
 
 ### Configuration intiale :
-- Commencer par build le conteneur avec le fichier docker-compose
+Commencer par build le conteneur avec le fichier docker-compose :
   docker compose up --build -d
 - Ensuite on exécute le conteneur en l'ouvrant avec une interface bash :
   docker compose exec -it db bash
