@@ -1,0 +1,14 @@
+server: 
+  port: 8081
+spring:
+  liquibase:
+    enabled: false
+  datasource:
+    url: jdbc:postgresql://db:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    database_platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    #UTILISER LA COMMANDE CI DESSOUS POUR CREER LA BASE DE DONNEES ET APRES METTRE EN COMMENTAIRE
+    hibernate.ddl-auto: create
