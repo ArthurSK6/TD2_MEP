@@ -20,6 +20,7 @@ pipeline {
 
                     // Push uniquement l'image du backend
                     sh 'docker push arthursk/mep_td2_hurdebourg:latest'
+                }
             }
         }
     }
