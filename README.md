@@ -61,6 +61,9 @@ git clone https://github.com/jredel/jenkins-compose.git
 ```
 On lance le conteneur en faisant ```docker compose up``` puis on peut trouver le mot de passe de Jenkins sur les logs du conteneur sur l'application Docker Desktop
 
+Une fois le mot de passe trouvè, on peut lancer Jenkins sur son navigateur en allant à l'adresse `localhost:8001`.  
+On rentre le mot de passe, puis on fait l'installation de tout ce qui est nécessaire.  
+On clique sur rester en mode administrateur puis on a accès à Jenkins.  
 
 ### Il faut maintenant ajouter un credential afin d'accèder et de lier notre compte DockerHub
 Dans Jenkins :
