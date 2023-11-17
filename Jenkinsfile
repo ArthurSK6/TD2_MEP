@@ -6,21 +6,20 @@ pipeline {
         stage('build') {
             steps {
                 echo 'Building..'
-
-                //checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Ocin57/MEP-covid-api.git']]])
-                //git clone 'https://github.com/Ocin57/MEP-covid-api.git'
                 
-                sh 'docker compose up -d'                
+                
+                sh 'docker build -t arthursk/mep_td2_hurdebourg:latest .'                
             }
         }
-        stage('Test') {
+        stage('Docker Push') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                echo ' Docker push'
+                
+                withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+
+                    // Push uniquement l'image du backend
+                    sh 'docker push arthursk/mep_td2_hurdebourg:latest'
             }
         }
     }
